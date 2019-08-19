@@ -24,18 +24,18 @@ Here, we work on to mitigate the issue of high runtime required for intializing 
 The algorithm:
 
 ● Initialize a centroid randomly which lies on the data at random
-● Compute the probability distribution of all the data points with reference to the assigned
-centroid.
-● Pick a point at random from the data set to start the markov chain. This point will act as
-the initial state in our sequence of points
-● Sample the next state form the dataset based on the probability distribution. Compute the
-transitional probabilities of staying in the same state and moving to the next state using the accepting rule, which is the difference between the two distances, i.e.,
-        dist (xj+1- x j) = D(xj+1 , C) – D(xj,C)
+● Compute the probability distribution of all the data points with reference to the assigned centroid.
+● Pick a point at random from the data set to start the markov chain. This point will act as the initial state in our sequence of points
+● Sample the next state form the dataset based on the probability distribution. Compute the transitional probabilities of staying in the same state and moving to the next state using the accepting rule, which is the difference between the two distances, i.e., 
+                
+                dist (xj+1- x j) = D(xj+1 , C) – D(xj,C)
+                
 where D(x, C) is the distance square of the point x from the known centroid set C.
 ● Now for condition for moving to the next state:
-  ○ If the difference comes out to be positive, move to the desired state as the distance
-of the next state is greater than the previous state.
-  ○ Or else, move to the desired state with the transitional probability:
-         p(xj+1/xj)= exp(dist(xj+1-xj)).
+    ○ If the difference comes out to be positive, move to the desired state as the distanceof the next state is greater than the previous state.
+    ○ Or else, move to the desired state with the transitional probability:
+                
+                                p(xj+1/xj)= exp(dist(xj+1-xj)).
+                
+ We are mapping the difference of the distance to this function as our differences between the two states could be very highly negative, which implies that the probability of going to the new state is very less. We need a function which maps input of -infinity to value of y as 0 and the value of y to 1 when the value of the x is 0. The exponential function does that, as shown in graph below:
 
-We are mapping the difference of the distance to this function as our differences between the two states could be very highly negative, which implies that the probability of going to the new state is very less. We need a function which maps input of -infinity to value of y as 0 and the value of y to 1 when the value of the x is 0. The exponential function does that, as shown in graph below:
