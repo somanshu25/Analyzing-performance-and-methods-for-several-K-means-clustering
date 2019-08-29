@@ -37,5 +37,6 @@ where D(x, C) is the distance square of the point x from the known centroid set 
                 
                                 p(xj+1/xj)= exp(dist(xj+1-xj)).
                 
- We are mapping the difference of the distance to this function as our differences between the two states could be very highly negative, which implies that the probability of going to the new state is very less. We need a function which maps input of -infinity to value of y as 0 and the value of y to 1 when the value of the x is 0. The exponential function does that, as shown in graph below:
-
+ We are mapping the difference of the distance to this function as our differences between the two states could be very highly negative, which implies that the probability of going to the new state is very less. We need a function which maps input of -infinity to value of y as 0 and the value of y to 1 when the value of the x is 0. 
+ 
+Overall, we observe that the performance of initialization with MCMC gives the better results.
